@@ -122,7 +122,7 @@ class IlmClient(NamespacedClient):
 
         return self.transport.perform_request(
             "PUT",
-            _make_path=("_plugins", "_ism", "policies")
+            _make_path=("_plugins", "_ism", "policies"),
             params=params,
             headers=headers,
             body=body,
