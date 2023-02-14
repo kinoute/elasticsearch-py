@@ -108,7 +108,7 @@ class IlmClient(NamespacedClient):
         )
 
     @query_params()
-    def put_lifecycle(self, policy, body=None, policy_id=", params=None, headers=None):
+    def put_lifecycle(self, policy, body=None, params=None, headers=None):
         """
         Creates a lifecycle policy
 
@@ -122,7 +122,7 @@ class IlmClient(NamespacedClient):
 
         return self.transport.perform_request(
             "PUT",
-            _make_path("_plugins", "_ism", "policies", policy_id),
+            _make_path("_plugins", "_ism", "policies", policy),
             params=params,
             headers=headers,
             body=body,
