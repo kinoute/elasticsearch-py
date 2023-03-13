@@ -129,7 +129,7 @@ class IlmClient(NamespacedClient):
         )
 
     @query_params()
-    def remove_policy(self, index, params=None, headers=None):
+    def remove_policy(self, policy, params=None, headers=None):
         """
         Removes the assigned lifecycle policy and stops managing the specified index
 
@@ -141,7 +141,10 @@ class IlmClient(NamespacedClient):
             raise ValueError("Empty value passed for a required argument 'index'.")
 
         return self.transport.perform_request(
-            "POST", _make_path(index, "_ilm", "remove"), params=params, headers=headers
+            "DELETE",
+            _make_path("_plugins", "_ism" , "policies", policy),
+            params=params,
+            headers=headers,
         )
 
     @query_params()
