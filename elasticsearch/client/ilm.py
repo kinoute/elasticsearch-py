@@ -137,9 +137,6 @@ class IlmClient(NamespacedClient):
 
         :arg index: The name of the index to remove policy on
         """
-        if index in SKIP_IN_PATH:
-            raise ValueError("Empty value passed for a required argument 'index'.")
-
         return self.transport.perform_request(
             "DELETE",
             _make_path("_plugins", "_ism" , "policies", policy),
